@@ -515,8 +515,9 @@ class InterfaceTicketEmail extends DolibarrTriggers
 
 		$message = dol_nl2br($message);
 
+		$old_MAIN_MAIL_AUTOCOPY_TO = $conf->global->MAIN_MAIL_AUTOCOPY_TO;
+
 		if (!getDolGlobalString('TICKET_DISABLE_MAIL_AUTOCOPY_TO')) {
-			$old_MAIN_MAIL_AUTOCOPY_TO = $conf->global->MAIN_MAIL_AUTOCOPY_TO;
 			$conf->global->MAIN_MAIL_AUTOCOPY_TO = '';
 		}
 		include_once DOL_DOCUMENT_ROOT.'/core/class/CMailFile.class.php';
